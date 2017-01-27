@@ -9,6 +9,7 @@ kotlin | java
 `Boolean` | `boolean`
 `Byte` | `byte`
 `Char` | `char`
+`Short` | `short`
 `Int` | `int`
 `Long` | `long`
 `Float` | `float`
@@ -94,8 +95,46 @@ val l: Long = 1000 // 1000 은 Int 이고, 1000L 이 Long 이다.
 
 타입이 Long 이라고 명시적으로 선언되어 있기 때문에, 컴파일 타임에 1000 을 1000L 로 해석할 수 있기 때문이다.
 
+## 비트 연산자
+c 로부터 이어져온 유구한 연산자 `&`, `|`, `~`, `^`, `<<`, `>>` 등의 비트 연산자를 코틀린에서는 쓰지 않는다.
+
+대신에 `and`, `or` 등의 `infix fun` 을 이용한다.
+
+kotlin | java
+------ | ----
+`and` | `&`
+`or` |  `|`
+`inv` | `~`
+`xor` | `^`
+`shl` | `<<`
+`shr` | `>>`
+
+
+```kotlin
+val MASK: Byte = 0b0001
+val a: Byte = 0b1001
+
+println(a and MASK == MASK) // true
+
+println(a.inv().toString(2)) // -1010
+
+```
+
+다른 코드를 포팅할 때 애로사항이 되기도 하지만, 코드가 명확하게 되어 헷갈릴 일이 줄어들 것이다.
+
+불린에 대한 `and`, `or` 연산자인 `&&`, `||` 는 다행히(?) 그대로 쓸 수 있다.
+
+```kotlin
+val a = 0
+val b = 1
+if (a == 0 && b != 0) {}
+
+if (a == 0 or b == 0) {} // || 대신 or 를 써도 된다. 하지만 || 이 익숙하겠지.
+```
+
 
 ---
 ### _참고_
+https://kotlinlang.org/docs/reference/basic-types.html
 https://github.com/JetBrains/kotlin/blob/master/core/builtins/native/kotlin/Arrays.kt
 https://github.com/JetBrains/kotlin/blob/master/core/builtins/native/kotlin/Array.kt
