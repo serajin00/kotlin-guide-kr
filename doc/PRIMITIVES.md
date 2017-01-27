@@ -35,9 +35,10 @@ type | 생성 (size) | 생성 - 초기화
 ---- | ---------- | ----------
 `IntArray` | `IntArray(10)` | `intArrayOf(1, 2, 3)`
 `FloatArray` | `FloatArray(10)` | `floatArrayOf(1.0f, 2.0f, 3.0f)`
+`Array<String>` | `Array<String>(10) { "" }` | `arrayOf("one", "two", "three")`
 
 ---
-배열을 생성하면서 값을 초기화 하고 싶은 경우는 다음과 같이 함수(lambda) 를 넘기면 된다. 
+size 가 있는 배열을 생성하면서 값을 초기화 하려면 다음과 같이 함수(lambda) 를 넘긴다. 
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -129,7 +130,7 @@ val a = 0
 val b = 1
 if (a == 0 && b != 0) {}
 
-if (a == 0 or b == 0) {} // || 대신 or 를 써도 된다. 하지만 || 이 익숙하겠지.
+if (a == 0 or b == 0) {} // or 를 써도 된다. || 가 익숙하겠지만.
 ```
 
 
