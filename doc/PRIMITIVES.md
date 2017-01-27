@@ -14,8 +14,7 @@ kotlin | java
 `Float` | `float`
 `Double` | `double`
 
----
-배열과 리스트
+## 배열과 리스트
 
 kotlin | java
 ------ | ----
